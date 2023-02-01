@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body{
+    background-color: #00255C;
+    position: relative;
+}
+
+.title{
+    text-align: center;
+    padding: 8%;
+    text-decoration: none;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 73px;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+}
+.box{
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border-radius: 20px;
+    width: 80%;
+}
+.imputUser{
+    box-sizing: 100%;
+}
+
+.main-button{
+    color: #00255C;
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    text-align: center;
+    background-color: #ffffff;
+    width: 375px;
+    height: 120px;
+    font-size: 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 400px;
+    color: #00255C; 
+    border-style:solid;
+    border-width:10px;
+    border-color: #00255C;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
