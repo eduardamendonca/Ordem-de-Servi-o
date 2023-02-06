@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 body{
@@ -13,50 +14,55 @@ body{
 
 .title{
     text-align: center;
-    padding: 8%;
+    padding: 3%;
     text-decoration: none;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 60px;
     line-height: 73px;
     letter-spacing: 0.1em;
-
     color: #FFFFFF;
 }
 .box{
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     position: absolute;
-    top: 500px;
+    top: 450px;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 15px;
+    
     border-radius: 20px;
     width: 80%;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px black;
+
+    font-family: 'Karma';
+    font-size: 25px;
+    line-height: 44px;
+    letter-spacing: 0.1em;
 }
-.imputUser{
-    box-sizing: 100%;
+.imputBox{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 1%;
+}
+input{
+    border: 0.5px solid;
+    height: 40px;
+    border-radius: 7px;
+}
+form input[type=nome],
+form input[type=rua]{
+    width: 65%;
+}
+form input[id=tel2],
+form input[id=cidade],
+form input[id=bairro]{
+    align-items : center;
 }
 
-.main-button{
-    color: #00255C;
-    font-family: Inter, sans-serif;
-    font-weight: 800;
-    font-size: 30px;
-    text-align: center;
-    background-color: #ffffff;
-    width: 375px;
-    height: 120px;
-    font-size: 30px;
-    font-family: Inter, sans-serif;
-    font-weight: 400px;
-    color: #00255C; 
-    border-style:solid;
-    border-width:10px;
-    border-color: #00255C;
-    border-radius: 25px;
-    cursor: pointer;
+.check{
+    width: 30px;
 }
-
