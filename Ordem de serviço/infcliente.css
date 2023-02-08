@@ -10,7 +10,6 @@ body{
     background-color: #00255C;
     position: relative;
 }
-
 .title{
     text-align: center;
     padding: 8%;
@@ -22,7 +21,7 @@ body{
     font-size: 60px;
     line-height: 73px;
     letter-spacing: 0.1em;
-
+    
     color: #FFFFFF;
 }
 .box{

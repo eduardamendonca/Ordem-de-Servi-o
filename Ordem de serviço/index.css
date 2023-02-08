@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
-
 body{
     background-color: #00255C;
     position: relative;
@@ -39,6 +37,3 @@ body{
     border-radius: 25px;
     cursor: pointer;
 }
-
-
-
