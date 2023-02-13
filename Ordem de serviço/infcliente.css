@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    box-sizing: border-box;
+    font-family: ;
 }
 
 body{
@@ -31,31 +33,9 @@ body{
     top: 500px;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 15px;
     border-radius: 20px;
     width: 80%;
 }
 .imputUser{
     box-sizing: 100%;
 }
-
-.main-button{
-    color: #00255C;
-    font-family: Inter, sans-serif;
-    font-weight: 800;
-    font-size: 30px;
-    text-align: center;
-    background-color: #ffffff;
-    width: 375px;
-    height: 120px;
-    font-size: 30px;
-    font-family: Inter, sans-serif;
-    font-weight: 400px;
-    color: #00255C; 
-    border-style:solid;
-    border-width:10px;
-    border-color: #00255C;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
