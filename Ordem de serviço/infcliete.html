@@ -14,40 +14,42 @@
     </head>
     <div class="box">
         <form action="#">
-            <div class="imputBox">
-                <label for="nome">Nome : </label>
-                <input type="text" name="nome" id="nome" class="imputUser" required>
+            <div class="input-group">
+                <div class="inputBox">
+                    <label for="nome">Nome : </label>
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                </div>
+                <div class="inputBox">
+                    <label for="telefone1">Telefone : </label>
+                    <input type="tel" name="telefone1" id="telefone1" class="inputUser" placeholder="XX XXXX-XXXX" required>
+                </div>
+                <div class="inputBox">
+                    <label for="telefone2">Telefone : </label>
+                    <input type="tel" name="telefone2" id="telefone2" class="inputUser" placeholder="XX XXXX-XXXX">
+                </div>      
+                <div class="inputBox">
+                    <label for="cep">CEP : </label>
+                    <input type="cep" name="cep" id="cep" class="inputUser">
+                </div>
+                <div class="inputBox">
+                    <label for="cidade">Cidade : </label>
+                    <input type="text" name="cidade" id="cidade" class="inputUser">
+                </div> 
+                <div class="inputBox">
+                    <label for="rua">Rua : </label>
+                    <input type="text" name="rua" id="rua" class="inputUser">
+                </div>
+                <div class="inputBox">
+                    <label for="num">N° : </label>
+                    <input type="tel" name="num" id="num" class="inputUser" >
+                </div>
+                <div class="inputBox">
+                    <label for="bairro">Bairro : </label>
+                    <input type="text" name="bairro" id="bairro" class="inputUser">
+                </div>
+                <input type="radio" id="wpp" name="wpp" value="wpp" required="">
+                <label for="wpp">Deseja receber sua OS no whatsapp</label> 
             </div>
-            <div class="imputBox">
-                <label for="telefone1">Telefone : </label>
-                <input type="tel" name="telefone1" id="telefone1" class="imputUser" placeholder="XX XXXX-XXXX" required>
-            </div>
-            <div class="imputBox">
-                <label for="telefone2">Telefone : </label>
-                <input type="tel" name="telefone2" id="telefone2" class="imputUser" placeholder="XX XXXX-XXXX" required>
-            </div>      
-            <div class="imputBox">
-                <label for="cep">CEP : </label>
-                <input type="cep" name="cep" id="cep" class="imputUser" required>
-            </div>
-            <div class="imputBox">
-                <label for="cidade">Cidade : </label>
-                <input type="text" name="cidade" id="cidade" class="imputUser" required>
-            </div> 
-            <div class="imputBox">
-                <label for="rua">Rua : </label>
-                <input type="text" name="rua" id="rua" class="imputUser" required>
-            </div>
-            <div class="imputBox">
-                <label for="num">N° : </label>
-                <input type="tel" name="num" id="num" class="imputUser" required>
-            </div>
-            <div class="imputBox">
-                <label for="bairro">Bairro : </label>
-                <input type="text" name="bairro" id="bairro" class="imputUser" required>
-            </div>
-            <input type="radio" id="wpp" name="wpp" value="wpp" required="">
-            <label for="wpp">Deseja receber sua OS no whatsapp</label> 
         </form>
     </div>
 </body>   
