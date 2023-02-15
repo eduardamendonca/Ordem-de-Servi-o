@@ -23,14 +23,13 @@ body{
     letter-spacing: 0.1em;
     color: #FFFFFF;
 }
+/*-----Box do formulário-----*/
 .box{
     background-color: #ffffff;
-    position: absolute;
-    top: 25rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
     border-radius: 20px;
     width: 80%;
+    font-family: 'karma';
 }
 .imputUser{
     box-sizing: 100%;
@@ -38,9 +37,9 @@ body{
 .input-group {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 1rem 2rem;
     flex-direction: column;
+    justify-content: center;
 }
 .inputBox {
     display: flex;
@@ -57,13 +56,48 @@ body{
     font-size: 0.8rem;
 }
 .inputUser{
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
+
 }
 .label-text{
     font-weight: bold;
     font-size: 1.5rem;
+    width: 15%;
 }
-.inputBox:nth-child(0){
-    width: 100%;
+.inputUser[name=nome],
+.inputUser[name=rua]{
+    width: 67.2%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: flex-end;
+}
+.inputUser[name=telefone1],
+.inputUser[name=telefone2],
+.inputUser[name=cep],
+.inputUser[name=cidade],
+.inputUser[name=num],
+.inputUser[name=bairro]{
+    width: 25%;
+}
+.label-text{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    text-align: end;
+}
+.inputUser[name=telefone1],
+.inputUser[name=cep],
+.inputUser[name=num]{
+    margin-right: 0rem;
+}
+/*-----check-----*/
+.check{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 1rem;
+    
+
 }
