@@ -40,3 +40,9 @@ body{
 .main-button-img{
     padding: 0.3rem;
 }
+/*-----resoonsivo-----*/
+@media only screen and (max-width: 1440px) {
+    .main{
+        gap: 1rem;
+    }
+}

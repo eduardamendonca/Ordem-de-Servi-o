@@ -42,8 +42,30 @@ body{
 .table{
     box-sizing: 100%;
     width: 100%;
-    border-radius: 15px;
+    border: none;
     padding: 1rem;
+}
+.thead{
+    background-color: #8383835d;
+    margin: 0.5rem;
+}
+.qnt{
+    width: 3%;
+}
+.descricao{
+    width: 10%;
+}
+.unit{
+    width: 2%;
+}
+.result{
+    width: 5%;
+}
+input{
+    margin: 0rem 0;
+    padding: 0.1rem 0.1rem;
+
+    width: 100%;
 }
 .input-group {
     display: flex;
@@ -52,7 +74,6 @@ body{
     flex-direction: column;
     justify-content: center;
 }
-
 .inputBox input {
     margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;
@@ -61,7 +82,9 @@ body{
     font-size: 0.8rem;
 }
 .inputUser{
-    font-size: 1.5rem;
+    width: 90%;
+    border-radius: 0.5rem;
+    font-size: 1rem;;
 }
 /*-----botões-----*/
 .btn{
@@ -85,4 +108,23 @@ body{
 }
 .img-btn{
     width: 4rem;
+}
+/*-----resoonsivo-----*/
+@media only screen and (max-width: 1440px) {
+    .title{
+        font-size: 3rem;
+    }
+    .input-group{
+        padding: 1rem 1rem;
+    }
+    .inputBox{
+        margin-bottom: 0rem;
+        gap: 1rem;
+    }
+    .check{
+        margin-left: 10.9rem;;
+    }
+    .btn{
+        padding: 1%;
+    }
 }

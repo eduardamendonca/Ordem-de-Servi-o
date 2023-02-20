@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Ordem de Serviço te auxilia na criação e na consulta da nota de garantia da sua empresa, tudo isso através do nosso site">
+    <title>OS - Ordem de Serviço </title>
+    <link rel="stylesheet" type="text/css" href="consulta.css">
+</head>
+<body class="body">
+    <head>
+        <h1 class="title">Consultar</h1>    
+    </head>
+    <div class="box">
+        <div class="box">
+            <form action="#">
+                <div class="input-group">
+                    <div class="inputBox">
+                        <div class="choice">
+                            <label for="modo" class="label-text">Modo de consulta : </label>
+                            <select name="modo" id="modo" class="choiceUser">
+                                <option value="none"></option>
+                                <option value="placa">Placa</option>
+                                <option value="veiculo">Veículo</option>
+                                <option value="codigo">Código</option>
+                                <option value="nome">Nome</option>
+                                <option value="data">Data</option>
+                            </select>
+                        </div>
+                        <div class="busca">
+                            <input type="text" id="txtBusca" />
+                            <img src="img/searchblack.svg" id="btnBusca" alt="Buscar"/>
+                        </div>
+                        <p class="fim">
+                            ........
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>    
+    </div>
+</body>   
+    <section class="btn">
+        <a href="index.html" target="_self">
+            <button class="advance-btn">
+                <img src="img/left.svg" class="img-btn">
+            </button> 
+        </a>
+        <a href="#" target="_self">
+            <button class="back-btn">
+                <img src="img/imprimir.svg" class="img-btn">
+            </button> 
+        </a>
+    </section>
+</footer>
+</html>
