@@ -134,10 +134,51 @@ body{
         margin-bottom: 0rem;
         gap: 1rem;
     }
+    .inputUser[name=telefone1],
+    .inputUser[name=telefone2],
+    .inputUser[name=cep],
+    .inputUser[name=cidade],
+    .inputUser[name=num],
+    .inputUser[name=bairro]{
+        width: 24.7%;
+    }
     .check{
         margin-left: 10.9rem;;
     }
     .btn{
         padding: 1%;
+    }
+}
+@media only screen and (max-width: 1200px){
+    .inputUser[name=telefone1],
+    .inputUser[name=telefone2],
+    .inputUser[name=cep],
+    .inputUser[name=cidade],
+    .inputUser[name=num],
+    .inputUser[name=bairro]{
+        width: 24.45%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .input-group{
+        padding: 1.5rem 1rem;
+    }
+    .inputBox{
+        margin-bottom: 0rem;
+        gap: 1rem;
+    }
+    .inputUser[name=telefone1],
+    .inputUser[name=telefone2],
+    .inputUser[name=cep],
+    .inputUser[name=cidade],
+    .inputUser[name=num],
+    .inputUser[name=bairro]{
+        width: 24%;
+    }
+    .check{
+        margin-left: 8.5rem;;
+    }
+    .btn{
+        padding: 10%;
     }
 }

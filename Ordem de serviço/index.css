@@ -12,7 +12,7 @@ body{
 .main{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
     padding: 15%;
     text-decoration: none;
@@ -41,8 +41,28 @@ body{
     padding: 0.3rem;
 }
 /*-----resoonsivo-----*/
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1024px) {
     .main{
-        gap: 1rem;
+        padding: 25%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .main{
+        padding: 35%;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .main{
+        padding: 50%;
+        gap: 1.5rem;
+    }
+}
+@media only screen and (max-width: 320px) {
+    .main{
+        padding: 50%;
+    }
+    .main-button{
+        font-size: 1.2rem;
+        width: 18rem;
     }
 }
