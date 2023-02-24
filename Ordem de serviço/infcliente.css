@@ -123,6 +123,11 @@ body{
     width: 4rem;
 }
 /*-----resoonsivo-----*/
+@media only screen and(max-width: 2685px){
+    .check{
+        margin-left: 20.5rem;;
+    }
+}
 @media only screen and (max-width: 1440px) {
     .title{
         font-size: 3rem;
