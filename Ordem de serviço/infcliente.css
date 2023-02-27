@@ -58,7 +58,6 @@ body{
 }
 .inputUser{
     font-size: 1.5rem;
-
 }
 .label-text{
     font-weight: bold;
@@ -185,5 +184,16 @@ body{
     }
     .btn{
         padding: 10%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .inputBox input {
+        font-size: 0.8rem;
+    }
+    .label-text {
+        font-size: 1.3rem
+    }
+    .btn{
+        padding: 5%;
     }
 }
