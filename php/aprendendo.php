@@ -32,8 +32,25 @@
         <?php
             $num1 = $_GET["a"];
             $num2 = $_GET["b"];
-            echo "Valores recebidos  "
+            echo "Valores recebidos  $num1 e $num2";
         ?>
+        
+        <h1>Variáveis em PHP</h1>
+        <?php
+            $idade = 18;
+            $nome = "Eduarda";
+            echo $nome." tem ".$idade." anos!";
+            echo "$nome tem $idade anos!";
+        ?>
+        <h1>Operadores relacionais</h1>
+        <?php
+            $tipo =$_GET["op"];
+            $r = ($tipo == "s")?$num1+$num2:$num1*$num2;
+            echo "O resultado será $r";
+            $voto = ($idade>= 18 && $idade<65)?"OBRIGATORIO":"NÃO ORIGATORIO";
+            echo "Seu voto é $voto";
+        ?>
+        /*gfd*/
     </div>
 </body>
 </html>

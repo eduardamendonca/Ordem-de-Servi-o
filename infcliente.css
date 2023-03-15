@@ -24,7 +24,7 @@ body{
     color: #FFFFFF;
 }
 /*-----Box do formulário-----*/
-.box{
+.input-group{
     background-color: #ffffff;
     margin: auto;
     border-radius: 20px;
