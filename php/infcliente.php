@@ -1,6 +1,6 @@
-<?
-/*
-$telefone = $_POST['telefone1'];
+
+<?php
+/*$telefone = $_POST['telefone1'];
 $connect = mysql_connect('localhost','root','');
 $db = mysql_select_db('os');
 
@@ -18,4 +18,6 @@ $bairro = $_POST["bairro"];
 
 echo "Seu nome é $nome";
 echo "<br/>Você possui o telefone $telefone1";
+
+        $valor=$_POST["nome"];
 ?>

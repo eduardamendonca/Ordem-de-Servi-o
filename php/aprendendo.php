@@ -21,17 +21,18 @@
         <?php
             $n1 = 30;
             $n2 = 2;
-            echo "A soma vale ". ($n1+$n2};
-            echo "<br/>A subtração vale ". ($n1-$n2};
-            echo "<br/>A multiplicação vale ". ($n1*$n2};
-            echo "<br/>A divisão vale ". ($n1/$n2};
-            echo "<br/>O módulo vale ". ($n1%$n2};
-            echo "<br/>A média vale ". ($n1+$n2}/2;
+            echo "A soma vale ". ($n1+$n2);
+            echo "<br/>A subtração vale ". ($n1-$n2);
+            echo "<br/>A multiplicação vale ". ($n1*$n2);
+            echo "<br/>A divisão vale ". ($n1/$n2);
+            echo "<br/>O módulo vale ". ($n1%$n2);
+            echo "<br/>A média vale ". ($n1+$n2)/2;
         ?>
         <h2>Recebendo valores pela url</h2>
         <?php
             $num1 = $_GET["a"];
             $num2 = $_GET["b"];
+
             echo "Valores recebidos $num1 e $num2.";
         ?>
         <h2>Funções aritméticas</h2>
@@ -60,7 +61,27 @@
         <h1>Atribuindo variáveis</h1>
         <?php
                     
+
+            echo "Valores recebidos  $num1 e $num2";
+
         ?>
+        
+        <h1>Variáveis em PHP</h1>
+        <?php
+            $idade = 18;
+            $nome = "Eduarda";
+            echo $nome." tem ".$idade." anos!";
+            echo "$nome tem $idade anos!";
+        ?>
+        <h1>Operadores relacionais</h1>
+        <?php
+            $tipo =$_GET["op"];
+            $r = ($tipo == "s")?$num1+$num2:$num1*$num2;
+            echo "O resultado será $r";
+            $voto = ($idade>= 18 && $idade<65)?"OBRIGATORIO":"NÃO ORIGATORIO";
+            echo "Seu voto é $voto";
+        ?>
+        /*gfd*/
     </div>
 </body>
 </html>
