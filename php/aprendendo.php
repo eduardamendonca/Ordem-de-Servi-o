@@ -32,7 +32,34 @@
         <?php
             $num1 = $_GET["a"];
             $num2 = $_GET["b"];
-            echo "Valores recebidos  "
+            echo "Valores recebidos $num1 e $num2.";
+        ?>
+        <h2>Funções aritméticas</h2>
+        <?php
+            echo "O valor absoluto de a = ". abs($num1);
+            echo "<br/>O valor de $num1<sup>$num2</sup> é de: ". pow($num1, $num2);  
+            echo "<br/>A raiz quadrada de $num1 é de: ". sqrt($num1);
+            echo "<br/>O valor de $num2 arredondado é: ". round($num2); //ceil floor
+            echo "<br/>A parte inteira de $num2 é:". intval($num2);
+            echo "<br/> o valor de $num1 formatado é :". number_format($num1,2,",", "."); 
+        ?>
+        <h1>Atribuindo variáveis</h1>
+        <?php
+            
+            echo "Valores recebidos $num1 e $num2.";
+        ?>
+        <h2>Funções aritméticas</h2>
+        <?php
+            echo "O valor absoluto de a = ". abs($num1);
+            echo "<br/>O valor de $num1<sup>$num2</sup> é de: ". pow($num1, $num2);  
+            echo "<br/>A raiz quadrada de $num1 é de: ". sqrt($num1);
+            echo "<br/>O valor de $num2 arredondado é: ". round($num2); //ceil floor
+            echo "<br/>A parte inteira de $num2 é:". intval($num2);
+            echo "<br/> o valor de $num1 formatado é :". number_format($num1,2,",", "."); 
+        ?>
+        <h1>Atribuindo variáveis</h1>
+        <?php
+                    
         ?>
     </div>
 </body>
