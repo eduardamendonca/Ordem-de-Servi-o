@@ -81,7 +81,30 @@
             $voto = ($idade>= 18 && $idade<65)?"OBRIGATORIO":"NÃO ORIGATORIO";
             echo "Seu voto é $voto";
         ?>
-        /*gfd*/
+        <h1>Estutura condicional:</h1>
+        <?php 
+            switch($idade){
+                case 1:
+                case 2:
+                case 3:
+                    echo "Tipo 1";
+                    break;
+                case 4:
+                case 5:
+                    echo "Tipo 2";
+                    break;
+                default:
+                    echo "Tipo 3";
+            }
+        ?>
+        <h1>Estrutura de repetição While</h1>
+        <?php
+            $tipo =$_GET["op"];
+            $r = ($tipo == "s")?$num1+$num2:$num1*$num2;
+            echo "O resultado será $r";
+            $voto = ($idade>= 18 && $idade<65)?"OBRIGATORIO":"NÃO ORIGATORIO";
+            echo "Seu voto é $voto";
+        ?>
     </div>
 </body>
 </html>
