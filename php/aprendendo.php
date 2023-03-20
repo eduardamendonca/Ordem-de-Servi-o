@@ -81,7 +81,13 @@
             $voto = ($idade>= 18 && $idade<65)?"OBRIGATORIO":"NÃO ORIGATORIO";
             echo "Seu voto é $voto";
         ?>
-        /*gfd*/
+        <h1>Estrutura condicional switch</h1>
+        <?php
+            $idade = 18;
+            $nome = "Eduarda";
+            echo $nome." tem ".$idade." anos!";
+            echo "$nome tem $idade anos!";
+        ?>
     </div>
 </body>
 </html>

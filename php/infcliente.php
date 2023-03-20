@@ -16,9 +16,4 @@ $rua = isset ($_POST["rua"])?$_POST["rua"]:null;
 $num = isset ($_POST["num"])?$_POST["num"]:null;
 $bairro = isset ($_POST["bairro"])?$_POST["bairro"]:null;
 
-echo "Seu nome é $nome";
-echo "<br/>Você possui o telefone $telefone1";
-echo "<br/>Você possui o segundo telefone $telefone2";
-
-
 ?>
