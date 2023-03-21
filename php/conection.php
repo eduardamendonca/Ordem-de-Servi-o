@@ -1,12 +1,13 @@
 <?php
-$server = "root";
-$usuario = "localhost";
+$hostname = "localhost";
+$bancodedados = "os";
+$usuario = "root";
 $senha = "";
-$dbname = "os";
 
-$mysqli = new mysqli($server, $usuario, $senha, $dbname);
 
-if($mysql->error){
-    die("Banco de dados erro " .$mysqli->error);
+$mysqli = new mysqli($hostname, $bancodedados, $usuario, $senha);
+
+if($mysqli->connect_errno){
+    echo "Falha ao conectar : (" .$mysqli->connect_errno .")" . $mysqli ->connect_error;
 }
 ?>

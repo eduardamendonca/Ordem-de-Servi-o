@@ -6,6 +6,8 @@ $db = mysql_select_db('os');
 
         $query = "INSERT INTO inf_cliente (telefone1) VALUES ('$telefone')";
         $insert = mysql_query($query,$connect);*/
+
+include("conection.php");
         
 $nome = isset ($_POST["nome"])?$_POST["nome"]:null;
 $telefone1 = $_POST["telefone1"];
