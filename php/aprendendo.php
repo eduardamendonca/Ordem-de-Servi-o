@@ -18,6 +18,7 @@
     </div>
     <div>
         <h1>Operadores aritméticos</h1>
+        
         <?php
             $n1 = 30;
             $n2 = 2;

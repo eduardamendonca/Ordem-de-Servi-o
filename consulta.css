@@ -28,18 +28,19 @@ body{
     margin: auto;
     border-radius: 20px;
     width: 80%;
+    height: 20rem;
     font-family: 'Karma', serif;
 }
 /*-----form-----*/
 .inputBox {
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem 1rem;
+    padding: 1rem 10%;
     flex-direction: row;
     justify-content: center;
-    justify-content: space-between;
     margin-bottom: 1.1rem;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 1rem;
 }
     /*escolha*/
 .choiceUser{
@@ -59,6 +60,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
 #txtBusca{
     width: 80%;
@@ -88,7 +90,7 @@ body{
     flex-direction: row;
     justify-content: space-around;
     gap: 30rem;
-    padding: 2%;
+    padding: 1%;
     margin-top: 6.37%;
 }
 .advance-btn{
@@ -111,4 +113,10 @@ body{
 .img-btn{
     width: 4rem;
     color: #00255C;
+}
+
+@media only screen and(max-width: 2685px){
+    .check{
+        margin-left: 20.5rem;;
+    }
 }
