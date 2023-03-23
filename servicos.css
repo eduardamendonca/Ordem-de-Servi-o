@@ -44,6 +44,14 @@ body{
     width: 100%;
     border: none;
     padding: 1rem;
+    max-height: 30vh;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.table{
+    overflow-y: scroll;
+    padding: 0.5em;
+    margin-left: 1em;
 }
 .thead{
     background-color: #8383835d;
