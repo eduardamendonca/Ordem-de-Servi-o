@@ -6,7 +6,7 @@
     font-family: Inter, sans-serif;
 }
 body{
-    background-color: #00255C;
+    background-color: #00255C; 
     position: relative;
 }
 .main{
@@ -19,7 +19,6 @@ body{
 }
 /*-----botões-----*/
 .main-button{
-    color: #00255C;
     font-weight: 700;
     font-size: 1.5rem;
     background-color: #ffffff;
@@ -31,6 +30,9 @@ body{
     border-radius: 25px;
     cursor: pointer;
 }
+.text{
+    color:#00255C
+}
 .main-button{
     display: flex;
     flex-direction: row;
@@ -40,7 +42,7 @@ body{
 .main-button-img{
     padding: 0.3rem;
 }
-/*-----resoonsivo-----*/
+/*-----resoonsivo-----
 @media only screen and (max-width: 1024px) {
     .main{
         padding: 25%;

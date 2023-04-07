@@ -57,8 +57,9 @@ body{
     background-color: #8383835d;
     margin: 0.5rem;
 }
+
 .qnt{
-    width: 3%;
+    width: 1%;
 }
 .descricao{
     width: 10%;
@@ -67,7 +68,7 @@ body{
     width: 2%;
 }
 .result{
-    width: 5%;
+    width: 2%;
 }
 input{
     margin: 0rem 0;
