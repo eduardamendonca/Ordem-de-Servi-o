@@ -1,3 +1,4 @@
-<?
-    echo "ola";
+<?php
+    echo "Olá";
+    print ("oieeeeeeeeeeeeeeeee");
 ?>
