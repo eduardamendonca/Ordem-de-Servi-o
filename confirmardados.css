@@ -42,3 +42,10 @@ body{
     width: 4rem;
     color: #00255C;
 }
+.img-hhh{
+    display: flex;
+    position: center;
+    border: 2rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
+}

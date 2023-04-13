@@ -4,13 +4,17 @@ include("conection.php");
         
 $veiculo = isset ($_POST['veiculo'])?$_POST['veiculo']:null;
 $placa = $_POST['placa'];
-$cor = isset ($_POST['valor'])?$_POST['valor']:null;
-$ano = isset ($_POST['ano'])?$_POST['combustivel']:null;
+$cor = isset ($_POST['cor'])?$_POST['cor']:null;
+$ano = isset ($_POST['ano'])?$_POST['ano']:null;
+$km = isset ($_POST['km'])?$_POST['km']:null;
 $combustivel = isset ($_POST['combustivel'])?$_POST['combustivel']:null;
 $motor = isset ($_POST['motor'])?$_POST['motor']:null;
 
-$sql = "INSERT INTO `inf_veivulo`(veiculo, placa, cor, ano, km, combustivel, motor)
-        VALUES ('$veiculo', '$placa', '$cor', '$ano', '$combustivel', '$motor')";
+echo "$veiculo', '$placa', '$cor', '$ano', '$combustivel', '$motor'";
+
+$sql = "INSERT INTO `inf_veiculo`(veiculo, placa, cor, ano, km, combustivel, motor)
+        VALUES ('$veiculo', '$placa', '$cor', '$ano', '$km', '$combustivel', '$motor')";
+$sql = 0;
 
 $result= mysqli_query ($mysqli, $sql);
 

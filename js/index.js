@@ -1,7 +1,6 @@
-document.getElementByID("btnClique")
+const btn_imp=document.getElementsById("imp_btn")
 
-botao.addEventlistener("click", fnSoma)
+imp_btn.addEventlistener("click", (evet)=>{
+    window.print()
+})
 
-function fnSoma(){
-    return 3
-}

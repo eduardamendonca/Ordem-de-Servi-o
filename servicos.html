@@ -13,7 +13,7 @@
         <h1 class="title">Servicos</h1>    
     </head>
     <div class="box">
-        <form action="#">
+        <form action="php/servicos.php" method="post">
             <div class="input-group">
                 <div class="tableBox">
                     <table border="1" class="table">
@@ -27,52 +27,53 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="num" id="qnt1" ></td>
-                                <td><input type="text" id="descricao1"></td>
-                                <td><input type="num" id="valor1"></td>
-                                <td><input type="num" id="total1"></td>
+                                <td><input type="num" name="qnt1" id="qnt1" ></td>
+                                <td><input type="text" name="descricao1" id="descricao1"></td>
+                                <td><input type="num" name="valor1" id="valor1"></td>
+                                <td><input type="num" name="total1" id="total1"></td>
+                                
                             </tr>
                             <tr>
-                                <td><input type="num" id="qnt2" ></td>
-                                <td><input type="text" id="descricao2"></td>
-                                <td><input type="num" id="valor2"></td>
-                                <td><input type="num" id="tota2"></td>
+                                <td><input type="num" name="qnt2" id="qnt2" ></td>
+                                <td><input type="text" name="descricao2" id="descricao2"></td>
+                                <td><input type="num" name="valor2" id="valor2"></td>
+                                <td><input type="num" name="total2" id="total2"></td>
                             </tr>
                             <tr>
-                                <td><input type="num" id="qnt3" ></td>
-                                <td><input type="text" id="descricao3"></td>
-                                <td><input type="num" id="valor3"></td>
-                                <td><input type="num" id="total3"></td>
+                                <td><input type="num" name="qnt3" id="qnt3" ></td>
+                                <td><input type="text" name="descricao3" id="descricao3"></td>
+                                <td><input type="num" name="valor3" id="valor3"></td>
+                                <td><input type="num" name="total3" id="total3"></td>
                             </tr>
                             <tr>
-                                <td><input type="num" id="qnt4" ></td>
-                                <td><input type="text" id="descricao4"></td>
-                                <td><input type="num" id="valor4"></td>
-                                <td><input type="num" id="total4"></td>
+                                <td><input type="num" name="qnt4" id="qnt4" ></td>
+                                <td><input type="text" name="descricao4"id="descricao4"></td>
+                                <td><input type="num" name="valor4" id="valor4"></td>
+                                <td><input type="num" name="total4" id="total4"></td>
                             </tr>
                             <tr>
-                                <td><input type="num" id="qnt5" ></td>
-                                <td><input type="text" id="descricao5"></td>
-                                <td><input type="num" id="valor5"></td>
-                                <td><input type="num" id="total5"></td>
+                                <td><input type="num" name="qnt5" id="qnt5" ></td>
+                                <td><input type="text" name="descricao5" id="descricao5"></td>
+                                <td><input type="num" name="valor5" id="valor5"></td>
+                                <td><input type="num" name="total5" id="total5"></td>
                             </tr>
                             <tr>
-                                <td><input type="num" id="qnt6" ></td>
-                                <td><input type="text" id="descricao6"></td>
-                                <td><input type="num" id="valor6"></td>
-                                <td><input type="num" id="total6"></td>
+                                <td><input type="num" name="qnt6" id="qnt6" ></td>
+                                <td><input type="text" name="descricao6" id="descricao6"></td>
+                                <td><input type="num" name="valor6" id="valor6"></td>
+                                <td><input type="num" name="total6" id="total6"></td>
                             </tr>
                             <tr>
-                                <td><input type="num" id="qnt7" ></td>
-                                <td><input type="text" id="descricao7"></td>
-                                <td><input type="num" id="valor7"></td>
-                                <td><input type="num" id="total7"></td>
+                                <td><input type="num" name="qnt7" id="qnt7" ></td>
+                                <td><input type="text" name="descricao7" id="descricao7"></td>
+                                <td><input type="num" name="valor7" id="valor7"></td>
+                                <td><input type="num" id="total7" id="total7"></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="inputBox">
                         <label for="veiculo" class="label-text">Obs : </label>
-                        <textarea name="veiculo" id="veiculo" class="inputUser" rows="3"  required></textarea> 
+                        <textarea name="veiculo" id="veiculo" class="inputUser" rows="3" ></textarea> 
                     </div>
                 </div>
             </div> 
@@ -82,7 +83,7 @@
                             <img src="img/left.svg" class="img-btn">
                         </button> 
                     </a>
-                    <a href="confirmardados.html" target="_self">
+                    <a href="pdf.php" target="_self">
                         <button class="back-btn" type="submit">
                             <img src="img/right.svg" class="img-btn">
                         </button> 

@@ -39,7 +39,7 @@ body{
     gap: 1rem;
     align-items: center;
 }
-.table{
+table{
     box-sizing: 100%;
     width: 100%;
     border: none;
@@ -48,7 +48,7 @@ body{
     overflow-x: auto;
     overflow-y: auto;
 }
-.table{
+table{
     overflow-y: scroll;
     padding: 0.5em;
     margin-left: 1em;
@@ -105,8 +105,8 @@ input{
     padding: 2%;
     margin-top: 6.37%;
 }
-.advance-btn,
-.back-btn{
+.advance-btn
+{
     background-color: #ffffff;
     width: 10rem;
     height: 5rem;

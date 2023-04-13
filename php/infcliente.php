@@ -20,6 +20,7 @@ $bairro = isset ($_POST['bairro'])?$_POST['bairro']:null;
 
 $sql = "INSERT INTO `inf_clientes`(nome, telefone1, telefone2, cep, cidade, rua, num, bairro)
         VALUES ('$nome', '$telefone1', '$telefone2', '$cep', '$cidade', '$rua', '$num', '$bairro')";
+$sql = 0;
 
 $result= mysqli_query ($mysqli, $sql);
 
