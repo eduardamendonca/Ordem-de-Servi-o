@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #00255C;
+    position: relative;
+}
+
+.title{
+    text-align: center;
+    padding: 3%;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 73px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
+.box{
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 20px;
+    width: 80%;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px black;
+
+    font-family: 'Karma';
+    font-size: 25px;
+    line-height: 44px;
+    letter-spacing: 0.1em;
+}
+.imputBox{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 1%;
+}
+input{
+    border: 0.5px solid;
+    height: 40px;
+    border-radius: 7px;
+}
+form input[type=nome],
+form input[type=rua]{
+    width: 65%;
+}
+form input[id=tel2],
+form input[id=cidade],
+form input[id=bairro]{
+    align-items : center;
+}
+
+.check{
+    width: 30px;
+}
