@@ -13,14 +13,16 @@ $nome = isset ($_POST['nome'])?$_POST['nome']:null;
 $telefone1 = $_POST['telefone1'];
 $telefone2 = isset ($_POST['telefone2'])?$_POST['telefone2']:null;
 $cep = isset ($_POST['cep'])?$_POST['cep']:null;
-$cidade = $_POST['cidade'];
+$cidade = $_POST['cidade']?$_POST['cidade']:null;
 $rua = isset ($_POST['rua'])?$_POST['rua']:null;
 $num = isset ($_POST['num'])?$_POST['num']:null;
 $bairro = isset ($_POST['bairro'])?$_POST['bairro']:null;
 
 $sql = "INSERT INTO `inf_clientes`(nome, telefone1, telefone2, cep, cidade, rua, num, bairro)
         VALUES ('$nome', '$telefone1', '$telefone2', '$cep', '$cidade', '$rua', '$num', '$bairro')";
-$sql = 0;
+
+
+echo $nome, $telefone1, $telefone2, $cep, $cidade, $rua, $num, $bairro;
 
 $result= mysqli_query ($mysqli, $sql);
 

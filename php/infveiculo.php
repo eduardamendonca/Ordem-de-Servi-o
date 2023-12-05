@@ -14,7 +14,6 @@ echo "$veiculo', '$placa', '$cor', '$ano', '$combustivel', '$motor'";
 
 $sql = "INSERT INTO `inf_veiculo`(veiculo, placa, cor, ano, km, combustivel, motor)
         VALUES ('$veiculo', '$placa', '$cor', '$ano', '$km', '$combustivel', '$motor')";
-$sql = 0;
 
 $result= mysqli_query ($mysqli, $sql);
 
