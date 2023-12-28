@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Ordem de Serviço te auxilia na criação e na consulta da nota de garantia da sua empresa, tudo isso através do nosso site">
+    <title>OS - Ordem de Serviço </title>
+    <link rel="stylesheet" type="text/css" href="servicos.css">
+</head>
+<body class="body">
+    <head>
+        <h1 class="title">Servicos</h1>    
+    </head>
+    <div class="box">
+        <form action="php/servicos.php" method="post">
+            <div class="input-group">
+                <div class="tableBox">
+                    <table border="1" class="table">
+                        <thead class="thead">
+                            <tr>
+                                <th class="qnt">Qnt.</th>
+                                <th class="descricao">Descrição</th>
+                                <th class="unit">P. Unit.</th>
+                                <th class="result">Total</th>
+                            </tr>    
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="num" name="qnt1" id="qnt1" ></td>
+                                <td><input type="text" name="descricao1" id="descricao1"></td>
+                                <td><input type="num" name="valor1" id="valor1"></td>
+                                <td><input type="num" name="total1" id="total1"></td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="num" name="qnt2" id="qnt2" ></td>
+                                <td><input type="text" name="descricao2" id="descricao2"></td>
+                                <td><input type="num" name="valor2" id="valor2"></td>
+                                <td><input type="num" name="total2" id="total2"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="num" name="qnt3" id="qnt3" ></td>
+                                <td><input type="text" name="descricao3" id="descricao3"></td>
+                                <td><input type="num" name="valor3" id="valor3"></td>
+                                <td><input type="num" name="total3" id="total3"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="num" name="qnt4" id="qnt4" ></td>
+                                <td><input type="text" name="descricao4"id="descricao4"></td>
+                                <td><input type="num" name="valor4" id="valor4"></td>
+                                <td><input type="num" name="total4" id="total4"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="num" name="qnt5" id="qnt5" ></td>
+                                <td><input type="text" name="descricao5" id="descricao5"></td>
+                                <td><input type="num" name="valor5" id="valor5"></td>
+                                <td><input type="num" name="total5" id="total5"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="num" name="qnt6" id="qnt6" ></td>
+                                <td><input type="text" name="descricao6" id="descricao6"></td>
+                                <td><input type="num" name="valor6" id="valor6"></td>
+                                <td><input type="num" name="total6" id="total6"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="num" name="qnt7" id="qnt7" ></td>
+                                <td><input type="text" name="descricao7" id="descricao7"></td>
+                                <td><input type="num" name="valor7" id="valor7"></td>
+                                <td><input type="num" id="total7" id="total7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="inputBox">
+                        <label for="veiculo" class="label-text">Obs : </label>
+                        <textarea name="obs" id="obs" class="inputUser" rows="3" ></textarea> 
+                    </div>
+                </div>
+            </div> 
+                <section class="btn">
+                    <a href="infveiculo.html" target="_self">
+                        <button class="advance-btn">
+                            <img src="img/left.svg" class="img-btn">
+                        </button> 
+                    </a>
+                    <a href="/Ordem-de-Servico/php/ordem_servico.php" target="_self">
+                        <button class="back-btn" type="submit">
+                            <img src="img/right.svg" class="img-btn">
+                        </button> 
+                    </a>
+                </section>
+        </form>
+    </div>
+</body>   
+</footer>
+</html>

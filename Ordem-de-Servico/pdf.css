@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+}
+body{
+    margin: 3rem;
+}
+img{
+    width: 100%;
+    
+}
+
+.table{
+    box-sizing: 100%;
+    width: 100%;
+    border: 15rem;
+    padding: 1rem;
+    max-height: 30vh;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.table{
+    overflow-y: scroll;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+.thead{
+    background-color: #8383835d;
+    margin: 0.5rem;
+}
+
+.qnt{
+    width: 1%;
+}
+.descricao{
+    width: 10%;
+}
+.unit{
+    width: 2%;
+}
+.result{
+    width: 2%;
+}
+input{
+    margin: 0rem 0;
+    padding: 0.1rem 0.1rem;
+
+    width: 100%;
+}
