@@ -85,6 +85,8 @@ if(isset($descricao2)) {
                                                         VALUES ('$qnt7', '$descricao7', '$valor7', '$total7')";
 
                                                 $result= mysqli_query ($mysqli, $sql);
+                                                
+                                                session_start();
 
                                                 $query_servicos1 = "SELECT id, descricao
                                                 FROM servicos 
@@ -97,6 +99,7 @@ if(isset($descricao2)) {
                                                         $row1 = $result1->fetch_assoc(); 
                                                         $id1 = $row1["id"];
                                                 }
+                                                $_SESSION['id1_tabela_auxiliar'] = $id1; 
                                 
                                                 /*------------------------------*/
                                 
@@ -188,7 +191,10 @@ if(isset($descricao2)) {
                                                 
                                                 $result= mysqli_query ($mysqli, $sql);
 
+                                                session_write_close();
+
                                         }  else {
+                                                session_start();
          
                                                 $query_servicos1 = "SELECT id, descricao
                                                         FROM servicos 
@@ -201,6 +207,7 @@ if(isset($descricao2)) {
                                                         $row1 = $result1->fetch_assoc(); 
                                                         $id1 = $row1["id"];
                                                 }
+                                                $_SESSION['id1_tabela_auxiliar'] = $id1; 
                                 
                                                 /*------------------------------*/
                                 
@@ -277,11 +284,14 @@ if(isset($descricao2)) {
                                                         VALUES ('$obs', '$id1', '$id2', '$id3', '$id4', '$id5', '$id6')";
                                         
                                                $result= mysqli_query ($mysqli, $sql);
+
+                                               session_write_close();
                                                 
                                         
                                         }     
 
                                 } else {
+                                        session_start();
          
                                         $query_servicos1 = "SELECT id, descricao
                                                 FROM servicos 
@@ -294,6 +304,7 @@ if(isset($descricao2)) {
                                                 $row1 = $result1->fetch_assoc(); 
                                                 $id1 = $row1["id"];
                                         }
+                                        $_SESSION['id1_tabela_auxiliar'] = $id1; 
                         
                                         /*------------------------------*/
                         
@@ -356,11 +367,14 @@ if(isset($descricao2)) {
                                                 VALUES ('$obs', '$id1', '$id2', '$id3', '$id4', '$id5')";
                                 
                                        $result= mysqli_query ($mysqli, $sql);
+
+                                       session_write_close();
                                         
                                 
                                 }
 
                         } else {
+                                session_start();
          
                                 $query_servicos1 = "SELECT id, descricao
                                         FROM servicos 
@@ -373,6 +387,7 @@ if(isset($descricao2)) {
                                         $row1 = $result1->fetch_assoc(); 
                                         $id1 = $row1["id"];
                                 }
+                                $_SESSION['id1_tabela_auxiliar'] = $id1; 
                 
                                 /*------------------------------*/
                 
@@ -421,11 +436,14 @@ if(isset($descricao2)) {
                                         VALUES ('$obs', '$id1', '$id2', '$id3', '$id4')";
                         
                                $result= mysqli_query ($mysqli, $sql);
+
+                               session_write_close();
                                 
                         
                         }
 
                 } else {
+                        session_start();
          
                         $query_servicos1 = "SELECT id, descricao
                                 FROM servicos 
@@ -438,6 +456,7 @@ if(isset($descricao2)) {
                                 $row1 = $result1->fetch_assoc(); 
                                 $id1 = $row1["id"];
                         }
+                        $_SESSION['id1_tabela_auxiliar'] = $id1; 
         
                         /*------------------------------*/
         
@@ -472,11 +491,14 @@ if(isset($descricao2)) {
                                 VALUES ('$obs', '$id1', '$id2', '$id3')";
                 
                        $result= mysqli_query ($mysqli, $sql);
+
+                       session_write_close();
                         
                 
                 }
 
         } else {
+                session_start();
          
                 $query_servicos1 = "SELECT id, descricao
                         FROM servicos 
@@ -489,6 +511,7 @@ if(isset($descricao2)) {
                         $row1 = $result1->fetch_assoc(); 
                         $id1 = $row1["id"];
                 }
+                $_SESSION['id1_tabela_auxiliar'] = $id1; 
 
                 /*------------------------------*/
 
@@ -508,12 +531,15 @@ if(isset($descricao2)) {
                         VALUES ('$obs', '$id1', '$id2')";
         
                $result= mysqli_query ($mysqli, $sql);
+
+               session_write_close();
                 
         
         }
 
 } else {
-         
+        session_start();
+
         $query_servicos = "SELECT id, descricao
                 FROM servicos 
                 WHERE descricao = '$descricao1'
@@ -525,10 +551,13 @@ if(isset($descricao2)) {
                 $row = $result->fetch_assoc(); 
                 $id1 = $row["id"];
         }
+        $_SESSION['id1_tabela_auxiliar'] = $id1; 
 
        $sql = "INSERT INTO `tabela_auxiliar` (obs, servico1) VALUES ('$obs', '$id1')";
 
        $result= mysqli_query ($mysqli, $sql);
+
+       session_write_close();
         
 
 }

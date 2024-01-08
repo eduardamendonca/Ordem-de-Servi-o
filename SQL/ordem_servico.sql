@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS `ordem_servico` (
   PRIMARY KEY (`id`),
   KEY `cliente` (`cliente`),
   KEY `veiculo` (`veiculo`),
-  KEY `servico` (`servico`)
+  KEY `servico` (`servico`),
+  `data` varchar(1000) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
