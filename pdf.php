@@ -1,4 +1,7 @@
- <html>
+<?php
+include("php\conection.php");
+?>
+<html>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -123,17 +126,76 @@
             </thead> 
             <?php
             /* Consulta na tabela tabela_auxiliar -> servicos */
+                $servicos_querry = "SELECT quantidade, descricao, unidade, total
+                    FROM servicos WHERE 
+                    id = $servico1 or id = $servico2 or id = $servico3 or id = $servico4 or id = $servico5
+                    or id = $servico6 or id = $servico7 or id = $servico8 or id = $servico9 or id = $servico10
+                    or id = $servico11 or id = $servico12 or id = $servico13 or id = $servico14 or id = $servico15
+                    ORDER BY id DESC";
+
+                $result = $mysqli->query($servicos_querry);
+
+                print_r($result);
+
                 $variavel = $servico1;
                 while (isset($variavel)){
                     echo"<tr>";
+                    echo "<td>".$servico_data['quantidade']."</td>";
+                    echo "<td>".$servico_data['descricao']."</td>";
+                    echo "<td>".$servico_data['unidade']."</td>";
+                    echo "<td>".$servico_data['total']."</td>";
+                    
+                    if($variavel = $servico1){
+                        $variavel = $servico2;
+                    }
+                    if($variavel = $servico2){
+                        $variavel = $servico3;
+                    }
+                    if($variavel = $servico3){
+                        $variavel = $servico4;
+                    }
+                    if($variavel = $servico4){
+                        $variavel = $servico5;
+                    }
+                    if($variavel = $servico5){
+                        $variavel = $servico6;
+                    }
+                    if($variavel = $servico6){
+                        $variavel = $servico7;
+                    }
+                    if($variavel = $servico7){
+                        $variavel = $servico8;
+                    }
+                    if($variavel = $servico8){
+                        $variavel = $servico9;
+                    }
+                    if($variavel = $servico9){
+                        $variavel = $servico10;
+                    }
+                    if($variavel = $servico10){
+                        $variavel = $servico11;
+                    }
+                    if($variavel = $servico11){
+                        $variavel = $servico12;
+                    }
+                    if($variavel = $servico12){
+                        $variavel = $servico13;
+                    }
+                    if($variavel = $servico13){
+                        $variavel = $servico14;
+                    }
+                    if($variavel = $servico14){
+                        $variavel = $servico15;
+                    }
 
+                    echo"</tr>";
                 }
             ?>   
             
         </table>
     </div>
     <div>
-        <p>Obs:</p>
+        <p>Obs: <?php echo $obs;?></p>
     </div>
     <div>
         <p>90 dias de garantia do serviço</p>
@@ -145,3 +207,4 @@
     </div>
 </body>
 </html>
+ 
