@@ -1,6 +1,7 @@
 <?php
     include("conection.php");
-   
+    session_start();  
+
     session_start();
     $veiculo = $_SESSION['placa'];
     session_write_close();
@@ -14,8 +15,6 @@
     $servico1 = $_SESSION['id1_tabela_auxiliar'];
     session_write_close();
 
-
-    echo $servico1;
     $query_tabela_auxiliar = "SELECT id
         FROM tabela_auxiliar
         WHERE servico1 = $servico1";
@@ -37,4 +36,11 @@
 
     $result= mysqli_query ($mysqli, $sql);
 
+    $_SESSION['cliente'] = $cliente ;
+    $_SESSION['veiculo'] = $veiculo ;
+    $_SESSION['tabela_auxiliar'] = $tabela_auxiliar;
+    $_SESSION['hoje'] = $hoje;
+
+    header("Location: /automecanicapj/Ordem-de-Servico/pdf.php");
+    session_write_close();
 ?>
