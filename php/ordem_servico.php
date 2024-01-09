@@ -41,6 +41,6 @@
     $_SESSION['tabela_auxiliar'] = $tabela_auxiliar;
     $_SESSION['hoje'] = $hoje;
 
-    header("Location: /automecanicapj/Ordem-de-Servico/pdf.php");
+    header("Location: /automecanicapj/Ordem-de-Servico/php/pdf.php");
     session_write_close();
 ?>

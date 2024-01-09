@@ -1,5 +1,5 @@
 <?php
-include("php\conection.php");
+include("conection.php");
 ?>
 <html>
 <!DOCTYPE html>
@@ -13,20 +13,39 @@ include("php\conection.php");
 </head>
 <?php
     session_start(); 
-    $cliente = $_SESSION['cliente'];
-    $veiculo = $_SESSION['veiculo'];
-    $tabela_auxiliar = $_SESSION['tabela_auxiliar'];
-    $hoje = $_SESSION['hoje'];
+    $cliente = mysqli_real_escape_string($mysqli, $_SESSION['telefone']);
+    $veiculo = (string) mysqli_real_escape_string($mysqli, $_SESSION['placa']);
+    $tabela_auxiliar =  mysqli_real_escape_string($mysqli, $_SESSION['id1_tabela_auxiliar']);
     session_write_close();
 
-    /* Consulta na tabela ordem_servico*/
-    $id_os = "SELECT id FROM ordem_servico WHERE 
-        cliente = $cliente and veiculo = $veiculo and servico = $tabela_auxiliar and data = $hoje";
+    $data = date('d/m/Y');
+    $hoje = (string )mysqli_real_escape_string($mysqli, $data); 
 
-    $result = $mysqli->query($id_os);
+    $query_tabela_auxiliar = "SELECT id
+        FROM tabela_auxiliar
+        WHERE servico1 = $tabela_auxiliar";
+
+    $result = $mysqli->query($query_tabela_auxiliar);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc(); 
+        $servico = $row["id"];
+    }
+    
+    echo $cliente;
+    echo $veiculo; 
+    echo $servico;
+    echo $hoje;
+
+    /* Consulta na tabela ordem_servico*/
+    $id_os_query = "SELECT id FROM ordem_servico WHERE 
+        cliente = $cliente and veiculo = $veiculo and servico = $servico and data = $hoje";
+
+    $result_id_os = $mysqli->query($id_os_query);
+
+
+    if ($result_id_os->num_rows > 0) {
+        $row = $result_id_os->fetch_assoc(); 
         $id_ordem_servico = $row["id"];
     }
 
