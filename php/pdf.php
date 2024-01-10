@@ -36,10 +36,12 @@ include("conection.php");
     echo $veiculo; 
     echo $servico;
     echo $hoje;
+    echo $tabela_auxiliar;
+    print_r("$veiculo");
 
     /* Consulta na tabela ordem_servico*/
     $id_os_query = "SELECT id FROM ordem_servico WHERE 
-        cliente = $cliente and veiculo = $veiculo and servico = $servico and data = $hoje";
+        cliente = $cliente and veiculo LIKE '$veiculo' and servico = $servico and data = $hoje";
 
     $result_id_os = $mysqli->query($id_os_query);
 
@@ -69,7 +71,7 @@ include("conection.php");
     /* Consulta na tabela veiculo */
     $veiculo_querry = "SELECT veiculo, placa, cor, ano, km, combustivel, motor
         FROM inf_veiculo WHERE 
-        placa = $veiculo";
+        placa = '$veiculo'";
 
     $result = $mysqli->query($veiculo_querry);
 
@@ -81,17 +83,26 @@ include("conection.php");
         $km = $row["km"];
         $combustivel = $row["combustivel"];
         $motor = $row["motor"];
-        $num = $row["num"];
-        $bairro = $row["bairro"];
     }
 
     /* Consulta na tabela tabela_auxiliar -> servicos */
-    $tabela_auxiliar_querry = "SELECT id, obs, servico1, servico2, servico3, servico4, servico5, servico6, servico7, servico8, servico9, 
+    $id_servico1_query = "SELECT id
+        FROM tabela_auxiliar WHERE 
+        servico1 = '$tabela_auxiliar'";
+
+    $result_id_servico1 = $mysqli->query($id_servico1_query);
+
+    if ($result_id_servico1->num_rows > 0) {
+        $row = $result_id_servico1->fetch_assoc(); 
+        $id_tabela_auxiliar = $row["id"];
+    }
+
+    $tabela_auxiliar_query = "SELECT id, obs, servico1, servico2, servico3, servico4, servico5, servico6, servico7, servico8, servico9, 
         servico10, servico11, servico12, servico13, servico14, servico15
         FROM tabela_auxiliar WHERE 
-        id = $tabela_auxiliar";
+        id = '$id_tabela_auxiliar'";
 
-    $result = $mysqli->query($tabela_auxiliar_querry);
+    $result = $mysqli->query($tabela_auxiliar_query);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc(); 
@@ -114,15 +125,32 @@ include("conection.php");
 
     }
     
+    echo $servico1;
+    echo $servico2;
+    echo $servico3;
+    echo $servico4;
+    echo $servico5;
+    echo $servico6;
+    echo $servico7;
+    echo $servico8;
+    echo $servico9;
+    echo $servico10 ;
+    echo $servico11 ;
+    echo $servico12 ;
+    echo $servico13 ;
+    echo $servico14 ;
+    echo $servico15 ;
+
+
     ?>
 <body>
     <header>
-        <img src="img/cabecalho.svg" >
+        <img src="/automecanicapj/Ordem-de-Servico/img/cabecalho.svg" >
     </header>
     <div class="inf">
-        <p>Nome: <?php echo $cliente;?></p> 
+        <p>Nome: <?php echo $nome;?></p> 
         <p>Endereço: <?php echo "$rua, $num, $bairro";?></p>
-        <p>Telefone: <?php echo $telefone;?> </p>
+        <p>Telefone: <?php echo $cliente;?> </p>
         <p>Telefone:<?php echo $telefone2;?></p>
         <p>Veículo: <?php echo $carro;?></p>
         <p>Placa <?php echo $veiculo;?></p>
@@ -147,9 +175,7 @@ include("conection.php");
             /* Consulta na tabela tabela_auxiliar -> servicos */
                 $servicos_querry = "SELECT quantidade, descricao, unidade, total
                     FROM servicos WHERE 
-                    id = $servico1 or id = $servico2 or id = $servico3 or id = $servico4 or id = $servico5
-                    or id = $servico6 or id = $servico7 or id = $servico8 or id = $servico9 or id = $servico10
-                    or id = $servico11 or id = $servico12 or id = $servico13 or id = $servico14 or id = $servico15
+                    id = $servico1 
                     ORDER BY id DESC";
 
                 $result = $mysqli->query($servicos_querry);
