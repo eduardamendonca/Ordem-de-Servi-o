@@ -6,13 +6,16 @@
     font-family: Inter, sans-serif;
 }
 body{
-    margin: 3rem;
+    margin: 10rem;
 }
 img{
-    width: 100%;
-    
+    width: 80%;
 }
-
+.info_cliente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .table{
     box-sizing: 100%;
     width: 100%;

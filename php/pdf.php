@@ -8,7 +8,7 @@ include("conection.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="pdf.css">
+    
     <title>pdf</title>
 </head>
 <?php
@@ -31,25 +31,18 @@ include("conection.php");
         $row = $result->fetch_assoc(); 
         $servico = $row["id"];
     }
-    
-    echo $cliente;
-    echo $veiculo; 
-    echo $servico;
-    echo $hoje;
-    echo $tabela_auxiliar;
-    print_r("$veiculo");
 
     /* Consulta na tabela ordem_servico*/
     $id_os_query = "SELECT id FROM ordem_servico WHERE 
-        cliente = $cliente and veiculo LIKE '$veiculo' and servico = $servico and data = $hoje";
+        cliente = '$cliente' and veiculo LIKE '$veiculo' and servico = '$servico' and data = '$hoje'";
 
     $result_id_os = $mysqli->query($id_os_query);
-
 
     if ($result_id_os->num_rows > 0) {
         $row = $result_id_os->fetch_assoc(); 
         $id_ordem_servico = $row["id"];
     }
+   
 
     /* Consulta na tabela clientes */
     $cliente_querry = "SELECT nome, telefone1 telefone2, cep, cidade, rua, num, bairro 
@@ -102,10 +95,10 @@ include("conection.php");
         FROM tabela_auxiliar WHERE 
         id = '$id_tabela_auxiliar'";
 
-    $result = $mysqli->query($tabela_auxiliar_query);
+    $result_tabela_auxiliar = $mysqli->query($tabela_auxiliar_query);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc(); 
+    if ($result_tabela_auxiliar->num_rows > 0) {
+        $row = $result_tabela_auxiliar->fetch_assoc(); 
         $obs = $row["obs"];
         $servico1 = $row["servico1"];
         $servico2 = $row["servico2"];
@@ -124,22 +117,6 @@ include("conection.php");
         $servico15 = $row["servico15"];
 
     }
-    
-    echo $servico1;
-    echo $servico2;
-    echo $servico3;
-    echo $servico4;
-    echo $servico5;
-    echo $servico6;
-    echo $servico7;
-    echo $servico8;
-    echo $servico9;
-    echo $servico10 ;
-    echo $servico11 ;
-    echo $servico12 ;
-    echo $servico13 ;
-    echo $servico14 ;
-    echo $servico15 ;
 
 
     ?>
@@ -148,17 +125,24 @@ include("conection.php");
         <img src="/automecanicapj/Ordem-de-Servico/img/cabecalho.svg" >
     </header>
     <div class="inf">
-        <p>Nome: <?php echo $nome;?></p> 
-        <p>Endereço: <?php echo "$rua, $num, $bairro";?></p>
-        <p>Telefone: <?php echo $cliente;?> </p>
-        <p>Telefone:<?php echo $telefone2;?></p>
-        <p>Veículo: <?php echo $carro;?></p>
-        <p>Placa <?php echo $veiculo;?></p>
-        <p>Cor: <?php echo $cor;?></p>
-        <p>Km: <?php echo $km;?></p>
-        <p>Ano: <?php echo $ano;?></p>
-        <p>Combustível: <?php echo $combustivel;?></p>
-        <p>Motor: <?php echo $motor;?></p>
+        <div class="info_cliente">
+            <p>Nome: <?php echo $nome;?></p> 
+        </div>
+        <div class="info_cliente">
+            <p>Endereço: <?php echo "$rua, $num, $bairro";?></p>
+            <p>Telefone: <?php echo $cliente;?> </p>
+        </div>
+        <div class="info_cliente">
+            <p>Km: <?php echo $km;?></p>
+            <p>Ano: <?php echo $ano;?></p>
+            <p>Combustível: <?php echo $combustivel;?></p>
+            <p>Motor: <?php echo $motor;?></p>
+        </div>
+        <div class="info_cliente">
+            <p>Veículo: <?php echo $carro;?></p>
+            <p>Placa <?php echo $veiculo;?></p>
+            <p>Cor: <?php echo $cor;?></p>
+        </div>
     </div>
     <div >
         
@@ -175,81 +159,116 @@ include("conection.php");
             /* Consulta na tabela tabela_auxiliar -> servicos */
                 $servicos_querry = "SELECT quantidade, descricao, unidade, total
                     FROM servicos WHERE 
-                    id = $servico1 
-                    ORDER BY id DESC";
+                    id = '$servico1' OR id = '$servico2' OR id = '$servico3' OR id = '$servico4' OR id = '$servico5' OR id = '$servico6' OR 
+                    id = '$servico7' OR id = '$servico8' OR id = '$servico9' OR id = '$servico10' OR id = '$servico11' OR id = '$servico12' OR
+                    id = '$servico13' OR id = '$servico14' OR id = '$servico15'
+                    ORDER BY id ASC";
 
-                $result = $mysqli->query($servicos_querry);
+                $result_servicos = $mysqli->query($servicos_querry);
 
-                print_r($result);
-
-                $variavel = $servico1;
-                while (isset($variavel)){
+                $resultado_total="0";
+                while ($servicos_data = mysqli_fetch_assoc($result_servicos) ){
                     echo"<tr>";
-                    echo "<td>".$servico_data['quantidade']."</td>";
-                    echo "<td>".$servico_data['descricao']."</td>";
-                    echo "<td>".$servico_data['unidade']."</td>";
-                    echo "<td>".$servico_data['total']."</td>";
+                    echo "<td>".$servicos_data['quantidade']."</td>";
+                    echo "<td>".$servicos_data['descricao']."</td>";
+                    echo "<td>".$servicos_data['unidade']."</td>";
+                    echo "<td>".$servicos_data['total']."</td>";
+                    echo"</tr>";
                     
-                    if($variavel = $servico1){
-                        $variavel = $servico2;
-                    }
-                    if($variavel = $servico2){
-                        $variavel = $servico3;
-                    }
-                    if($variavel = $servico3){
-                        $variavel = $servico4;
-                    }
-                    if($variavel = $servico4){
-                        $variavel = $servico5;
-                    }
-                    if($variavel = $servico5){
-                        $variavel = $servico6;
-                    }
-                    if($variavel = $servico6){
-                        $variavel = $servico7;
-                    }
-                    if($variavel = $servico7){
-                        $variavel = $servico8;
-                    }
-                    if($variavel = $servico8){
-                        $variavel = $servico9;
-                    }
-                    if($variavel = $servico9){
-                        $variavel = $servico10;
-                    }
-                    if($variavel = $servico10){
-                        $variavel = $servico11;
-                    }
-                    if($variavel = $servico11){
-                        $variavel = $servico12;
-                    }
-                    if($variavel = $servico12){
-                        $variavel = $servico13;
-                    }
-                    if($variavel = $servico13){
-                        $variavel = $servico14;
-                    }
-                    if($variavel = $servico14){
-                        $variavel = $servico15;
+                    $resultado_total += $servicos_data['total'];
+
+                    $num_rows = mysqli_num_rows($result_servicos);
+                    $teste = " ";
+                    if ($num_rows < 20) {
+                        for ($i = 0; $i < (20 - $num_rows); $i++) {
+                            echo "<tr>";
+                            echo "<td >.$teste</td>";
+                            echo "<td ></td>";
+                            echo "<td ></td>";
+                            echo "<td ></td>";
+                            echo "</tr>";
+                        }
                     }
 
-                    echo"</tr>";
+                    
                 }
+                    
             ?>   
+            
             
         </table>
     </div>
-    <div>
+    <div class="info_cliente">
         <p>Obs: <?php echo $obs;?></p>
+        Total R$ <?php echo $resultado_total;?>
     </div>
-    <div>
+    <div class="info_cliente">
         <p>90 dias de garantia do serviço</p>
         <p>Data:<?php echo $hoje;?> </p>
         <p>Cód:<?php echo $id_ordem_servico;?></p>
     </div>
-    <div>
-        Total R$ 
-    </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: Inter, sans-serif;
+    }
+    body{
+        margin: 15rem;
+        margin-top: 2rem;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    img{
+        width: 100%;
+    }
+    .info_cliente{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .table{
+        box-sizing: 100%;
+        width: 100%;
+        border: 15rem;
+        padding: 1rem;
+        max-height: 30vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+    .table{
+        overflow-y: scroll;
+        padding-top: 2rem;
+        
+    }
+    .thead{
+        background-color: #8383835d;
+        margin: 0.5rem;
+    }
+
+    .qnt{
+        width: 1%;
+    }
+    .descricao{
+        width: 10%;
+    }
+    .unit{
+        width: 2%;
+    }
+    .result{
+        width: 2%;
+    }
+    input{
+        margin: 0rem 0;
+        padding: 0.1rem 0.1rem;
+
+        width: 100%;
+    }
+    </style>
 </body>
 </html>
  
