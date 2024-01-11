@@ -27,7 +27,7 @@ body{
     background-color: #ffffff;
     margin: auto;
     border-radius: 20px;
-    width: 80%;
+    width: 85%;
     height: 20rem;
     font-family: 'Karma', serif;
 }
@@ -88,10 +88,15 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
     gap: 30rem;
     padding: 1%;
     margin-top: 6.37%;
+    margin-left: 10%;
+}
+.btnSubmit{
+    border-bottom-style: none;
+    background-color: #ffffff;
+    border: none;
 }
 .advance-btn{
     background-color: #ffffff;

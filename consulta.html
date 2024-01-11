@@ -14,7 +14,7 @@
     </head>
     <div class="box">
         <div class="box">
-            <form action="#">
+            <form action="php/consulta.php">
                 <div class="input-group">
                     <div class="inputBox">
                         <div class="choice">
@@ -29,8 +29,10 @@
                             </select>
                         </div>
                         <div class="busca">
-                            <input type="text" id="txtBusca" />
-                            <img src="img/searchblack.svg" id="btnBusca" alt="Buscar"/>
+                            <input type="text" id="txtBusca" name="busca"/>
+                            <button type="submit" class="btnSubmit">
+                                <img src="img/searchblack.svg" id="btnBusca" alt="Buscar"/>
+                            </button>
                         </div>
                         
                     </div>
@@ -45,11 +47,7 @@
                 <img src="img/left.svg" class="img-btn">
             </button> 
         </a>
-        <a href="#" target="_self">
-            <button class="back-btn">
-                <img src="img/imprimir.svg" class="img-btn">
-            </button> 
-        </a>
+        
     </section>
 </footer>
 </html>
