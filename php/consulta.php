@@ -1,26 +1,77 @@
 <?php
 include("conection.php");
 
-    $modo = isset ($_POST['modo'])?$_POST['modo']:null;
-    $busca = isset ($_POST['busca'])?$_POST['busca']:null;
-    echo $busca;
+$modo = isset ($_POST['modo'])?$_POST['modo']:null;
+$busca = isset ($_POST['busca'])?$_POST['busca']:null;
 
-    if($modo !== "none"){
-        if($modo == "placa"){
-            $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = '$busca' ORDER BY id DESC";
+function consultaNome($telefone, $mysqli){
+    $query_nome = "SELECT nome FROM inf_clientes WHERE telefone1 = '$telefone' ";
+        
+    $result_nome = $mysqli->query($query_nome);
+    
+    if($result_nome->num_rows > 0){
+        $row = $result_nome->fetch_assoc(); 
+        $nome = $row["nome"];
+    }
 
-            $result = $mysqli->query($query_ordem_servico);
+    return $nome;
+}
 
-            $placa = $busca;
-            echo $placa;
+function consultaVeiculo($placa, $mysqli){
+    $query_veiculo = "SELECT * FROM inf_veiculo WHERE placa = '$placa'";
 
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc(); 
-                $cod_os = $row["id"];
-                $telefone = $row["cliente"];
-                $servico = $row["servico"];
-                $data = $row["data"];
+    $result_veiculo = $mysqli->query($query_veiculo);
+
+    if($result_veiculo->num_rows > 0){
+        $row = $result_veiculo->fetch_assoc();
+        $veiculo = $row["veiculo"] ;
+        $cor = $row["cor"] ;
+        $ano = $row["ano"] ;
+    }
+    
+    return $array=[
+        'veiculo' => $veiculo, 
+        'cor' => $cor, 
+        'ano' => $ano
+    ];
+}
+
+if($modo !== "none"){
+    if($modo == "placa"){
+        /*buscando dados da os  */
+        $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = '$busca' ORDER BY id DESC";
+        
+        $result = $mysqli->query($query_ordem_servico); 
+
+        $contador = 0;
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc(); 
+            $id_os = $row["id"];
+            $telefone = $row["cliente"];
+            $placa = $row["veiculo"];
+            $id_servico = $row["servico"];
+            $data = $row["data"];
+            
+            /* buscando o nome do cliente*/
+            $nome = consultaNome($telefone, $mysqli);
+            
+            /* buscando os dados do veiculo*/
+            $auxiliar = consultaVeiculo($placa, $mysqli);
+            $veiculo = $auxiliar['veiculo'];
+            $ano = $auxiliar['ano'];
+            $cor = $auxiliar['cor'];
+            
+            if($contador == 0){
+                $array_final = [$id_os, $telefone, $placa, $data, $nome, $veiculo, $ano, $cor];
+            }else{
+                
             }
+            
+            print_r($array_final);
+            
+        }
+
         }
         if($modo == "veiculo"){
             echo "O modo é veiculo";
@@ -66,7 +117,7 @@ include("conection.php");
     </head>
     <div class="box">
         <div class="box">
-            <form action="php/consulta.php" method="post">
+            <form action="#" method="post">
                 <div class="input-group">
                     <div class="inputBox">
                         <div class="choice">
@@ -89,6 +140,21 @@ include("conection.php");
                     </div>
                 </div>
             </form>
+            <?php
+                while($busca_data = mysqli_fetch_assoc($result))
+                {
+                    echo "<div>";
+                    echo "Data: ".$busca_data['data'];   
+                    echo "<br>";
+                    echo "Código da OS: ".$busca_data['id'];
+                    echo "<br>";
+                    echo "Placa: ".$busca_data['veiculo'];
+                    echo "</div";
+                    $telefone = $busca_data['cliente'];
+                    $nome = consultaNome($telefone);
+                    
+                }
+            ?>
         </div>    
     </div>
 </body>   
