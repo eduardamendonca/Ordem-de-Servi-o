@@ -39,7 +39,9 @@ function consultaVeiculo($placa, $mysqli){
 if($modo !== "none"){
     if($modo == "placa"){
         /*buscando dados da os  */
+        
         $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = '$busca' ORDER BY id DESC";
+
         
         $result = $mysqli->query($query_ordem_servico); 
 
@@ -52,9 +54,11 @@ if($modo !== "none"){
             $placa = $row["veiculo"];
             $id_servico = $row["servico"];
             $data = $row["data"];
+            echo $id_os;
             
             /* buscando o nome do cliente*/
             $nome = consultaNome($telefone, $mysqli);
+            echo $nome;
             
             /* buscando os dados do veiculo*/
             $auxiliar = consultaVeiculo($placa, $mysqli);
@@ -72,46 +76,24 @@ if($modo !== "none"){
             
         }
 
-    }
-    if($modo == "veiculo"){
-        /* Buscando dados do veículo */
-        $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE veiculo = '$busca' ";
-        $result_inf_veiculo = $mysqli->query($query_inf_veiculo); 
-    if($result_inf_veiculo->num_rows > 0){
-        $row = $result_inf_veiculo->fetch_assoc(); 
-        $placa = $row["placa"];
-        $cor = $row["cor"];
-        $ano = $row["ano"];
-    }
-    /* Buscando dados da OS */
-    $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = '$placa' ORDER BY id DESC";
-    
-    $result = $mysqli->query($query_ordem_servico); 
-    $contador = 0;
-    if($result->num_rows > 0){
-        $row = $result->fetch_assoc(); 
-        $id_os = $row["id"];
-        $telefone = $row["cliente"];
-        $placa = $row["veiculo"];
-        $id_servico = $row["servico"];
-        $data = $row["data"];
-        echo $id_os;
-        
-        /* buscando o nome do cliente*/
-        $nome = consultaNome($telefone, $mysqli);
-        echo $nome; 
         }
-        print_r($result_inf_veiculo);
-    }
-    if($modo == "codigo"){
-        echo "O modo é codigo";
-    }
-    if($modo == "nome"){
-        echo "O modo é nome";
-    }
-    if($modo == "data"){
-        echo "O modo é data";        
-    }
+        if($modo == "veiculo"){
+            $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = 'Celta' ORDER BY id DESC";
+
+            $result = $mysqli->query($query_ordem_servico); 
+
+            print_r($result);
+        }
+        if($modo == "codigo"){
+            echo "O modo é codigo";
+        }
+        if($modo == "nome"){
+            echo "O modo é nome";
+        }
+        if($modo == "data"){
+            echo "O modo é data";
+        }
+
     }else{
         echo("<script> 
                 alert('Selecione o modo de consulta!'); 
@@ -175,9 +157,11 @@ if($modo !== "none"){
                     echo "Código da OS: ".$busca_data['id'];
                     echo "<br>";
                     echo "Placa: ".$busca_data['veiculo'];
-                    echo "</div";
-                    $telefone = $busca_data['cliente'];
-                    $nome = consultaNome($telefone);
+                    echo "<br>";
+                    echo "Telefone: ".$telefone = $busca_data['cliente'];
+                    echo "<br>";
+                    echo "Nome: ".$nome = consultaNome($telefone, $mysqli);
+                    echo "</div>";
                     
                 }
             ?>
@@ -185,7 +169,7 @@ if($modo !== "none"){
     </div>
 </body>   
     <section class="btn">
-        <a href="index.html" target="_self">
+        <a href="automecanicapj/Ordem-de-Servico/" target="_self">
             <button class="advance-btn">
                 <img src="/automecanicapj/Ordem-de-Servico/img/left.svg" class="img-btn">
             </button> 

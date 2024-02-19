@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Ordem de Serviço te auxilia na criação e na consulta da nota de garantia da sua empresa, tudo isso através do nosso site">
+    <title>OS - Ordem de Serviço </title>
+    <link rel="stylesheet" type="text/css" href="infcliente.css">
+</head>
+<body class="body">
+    <head>
+        <h1 class="title">Cadastro do cliente</h1>    
+    </head>
+    <div class="box">
+        <form action="php/infcliente.php" method="post">
+            <div class="input-group">
+                <div class="inputBox">
+                    <label for="nome" class="label-text">Nome : </label>
+                    <input type="text" name="nome" id="nome" class="inputUser">
+                </div>
+                <div class="inputBox">
+                    <label for="telefone1" class="label-text">Telefone : </label>
+                    <input type="tel" name="telefone1" id="telefone1" class="inputUser" required>
+
+                    <label for="telefone2" class="label-text">Telefone : </label>
+                    <input type="tel2" name="telefone2" id="telefone2" class="inputUser">
+                </div>      
+                <div class="inputBox">
+                    <label for="cep"class="label-text">CEP : </label>
+                    <input type="cep" name="cep" id="cep" class="inputUser">
+
+                    <label for="cidade" class="label-text">Cidade : </label>
+                    <input type="text" name="cidade" id="cidade" class="inputUser" placeholder="Uberlândia">
+                    </div> 
+                <div class="inputBox">
+                    <label for="rua" class="label-text">Rua : </label>
+                    <input type="text" name="rua" id="rua" class="inputUser">
+                </div>
+                <div class="inputBox">
+                    <label for="num" class="label-text">N° : </label>
+                    <input type="tel" name="num" id="num" class="inputUser">
+
+                    <label for="bairro" class="label-text">Bairro : </label>
+                    <input type="text" name="bairro" id="bairro" class="inputUser" placeholder="Shopping Park">
+                </div><!--
+                <div class="check">
+                    <input type="checkbox" id="wpp" name="wpp" value="wpp" required="">
+                    <label for="wpp">Deseja receber sua OS no whatsapp</label> 
+                </div>-->
+            </div>
+            </div> 
+            <section class="btn">
+                <a href="index.html" target="_self">
+                    <button class="advance-btn">
+                        <img src="img/left.svg" class="img-btn">
+                    </button> 
+                </a>
+                <a href="infveiculo.html" target="_self">
+                    <button class="back-btn" type="submit">
+                        <img src="img/right.svg" class="img-btn">
+                    </button> 
+                </a>
+            </section>
+        </form>
+    </div>
+</body>   
+</footer>
+</html>

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Karma:wght@300;400;500;600;700&display=swap);
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-se rif;
+}
+body{
+    background-color: #00255C; 
+    position: relative;
+}
+.box{
+    background-color: #ffffff;
+    margin: auto;
+    border-radius: 20px;
+    width: 80%;
+    font-family: 'Karma', serif;
+}
+/*-----botões-----*/
+.btn{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30rem;
+    padding: 2%;
+    margin-top: 6.37%;
+}
+.advance-btn,
+.back-btn{
+    background-color: #ffffff;
+    width: 10rem;
+    height: 5rem;
+    border-style:solid;
+    border-color: #00255C;
+    border-radius: 1.5rem;
+    cursor: pointer;   
+}
+.img-btn{
+    width: 4rem;
+    color: #00255C;
+}
+.img-hhh{
+    display: flex;
+    position: center;
+    border: 2rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
+}
