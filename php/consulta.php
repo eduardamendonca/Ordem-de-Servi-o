@@ -121,19 +121,69 @@ if($modo !== "none"){
 
         if($result->num_rows > 0){
             $row = $result->fetch_assoc(); 
-            $placa = $row["placa"];
+            $placa = $row["veiculo"];
             $telefone = $row["cliente"];
             $placa = $row["veiculo"];
             $id_servico = $row["servico"];
             $data = $row["data"];
-            echo $telefone;
+        }
+        /* buscando o nome do cliente*/
+        $nome = consultaNome($telefone, $mysqli);
+        
+        /* Buscando dados do veículo */
+        $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE placa = '$placa' ";
+        
+        $result_inf_veiculo = $mysqli->query($query_inf_veiculo); 
+        
+        if($result_inf_veiculo->num_rows > 0){
+            $row = $result_inf_veiculo->fetch_assoc(); 
+            $veiculo = $row["veiculo"];
+            $cor = $row["cor"];
+            $ano = $row["ano"];
+
         }
     }
     if($modo == "nome"){
         echo "O modo é nome";
     }
     if($modo == "data"){
-        echo "O modo é data";        
+        /*buscando dados da os  */
+        $query_ordem_servico = "SELECT * FROM ordem_servico WHERE data = '$busca' ORDER BY id DESC";
+        
+        $result = $mysqli->query($query_ordem_servico);         
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc(); 
+            $placa = $row["veiculo"];
+            $telefone = $row["cliente"];
+            $placa = $row["veiculo"];
+            $id_servico = $row["servico"];
+            $id_os = $row["id"];
+        }
+
+        /* buscando o nome do cliente*/
+        $nome = consultaNome($telefone, $mysqli);
+
+        /* Buscando dados do veículo */
+        $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE placa = '$placa' ";
+        
+        $result_inf_veiculo = $mysqli->query($query_inf_veiculo); 
+        
+        if($result_inf_veiculo->num_rows > 0){
+            $row = $result_inf_veiculo->fetch_assoc(); 
+            $veiculo = $row["veiculo"];
+            $cor = $row["cor"];
+            $ano = $row["ano"];
+        }
+        
+        echo "id servico: ".$id_servico;
+        echo "telefone: ".$telefone;
+        echo "placa: ".$placa;
+        echo "data: ".$busca ;
+        echo "nome: ".$nome ;
+        echo "veiculo: ".$veiculo ;
+        echo "ano: ".$ano ;
+        echo "cor: ".$cor ;
     }
     }else{
         echo("<script> 
