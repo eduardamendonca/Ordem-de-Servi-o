@@ -144,7 +144,56 @@ if($modo !== "none"){
         }
     }
     if($modo == "nome"){
-        echo "O modo é nome";
+        /*buscando dados do cliente */
+        $query_inf_clientes = "SELECT * FROM inf_clientes WHERE nome LIKE '%$busca%' ";
+        
+        $result_inf_clientes = $mysqli->query($query_inf_clientes);  
+        
+        print_r($result_inf_clientes);
+
+        if($result_inf_clientes->num_rows > 0){
+            $row = $result_inf_clientes->fetch_assoc(); 
+            $telefone = $row["telefone1"];
+            echo $telefone;
+        }
+
+        /* buscando o nome do cliente*/
+        $nome = consultaNome($telefone, $mysqli);
+
+        /*buscando dados da os  */
+        $query_ordem_servico = "SELECT * FROM ordem_servico WHERE cliente = '$telefone' ORDER BY id DESC";
+        
+        $result = $mysqli->query($query_ordem_servico);         
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc(); 
+            $placa = $row["veiculo"];
+            $data = $row["data"];
+            $placa = $row["veiculo"];
+            $id_servico = $row["servico"];
+            $id_os = $row["id"];
+        }
+        /* Buscando dados do veículo */
+        $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE placa = '$placa' ";
+        
+        $result_inf_veiculo = $mysqli->query($query_inf_veiculo); 
+        
+        if($result_inf_veiculo->num_rows > 0){
+            $row = $result_inf_veiculo->fetch_assoc(); 
+            $veiculo = $row["veiculo"];
+            $cor = $row["cor"];
+            $ano = $row["ano"];
+        }
+
+        echo $busca;
+        echo "telefone: ".$telefone;
+        echo "nome: ".$nome ;
+        echo "id servico: ".$id_servico;
+        echo "veiculo: ".$veiculo ;
+        echo "placa: ".$placa;
+        echo "ano: ".$ano ;
+        echo "cor: ".$cor ;
+        echo "data: ".$busca ;
     }
     if($modo == "data"){
         /*buscando dados da os  */
@@ -176,14 +225,6 @@ if($modo !== "none"){
             $ano = $row["ano"];
         }
         
-        echo "id servico: ".$id_servico;
-        echo "telefone: ".$telefone;
-        echo "placa: ".$placa;
-        echo "data: ".$busca ;
-        echo "nome: ".$nome ;
-        echo "veiculo: ".$veiculo ;
-        echo "ano: ".$ano ;
-        echo "cor: ".$cor ;
     }
     }else{
         echo("<script> 
