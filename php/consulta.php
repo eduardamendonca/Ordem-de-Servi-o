@@ -48,41 +48,53 @@ function consultaVeiculo($placa, $mysqli){
 if($modo !== "none"){
     if($modo == "placa"){
         /*buscando dados da os  */
+
         $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = '$busca' ORDER BY id DESC";
         
         $result = $mysqli->query($query_ordem_servico); 
 
-        $contador = 0;
+        $contador = $result->num_rows;
+        echo "CONTADOR: ".$contador."<br>";
 
         if($result->num_rows > 0){
-            $row = $result->fetch_assoc(); 
-            $id_os = $row["id"];
-            $telefone = $row["cliente"];
-            $placa = $row["veiculo"];
-            $id_servico = $row["servico"];
-            $data = $row["data"];
-            echo $telefone;
+            while($row = mysqli_fetch_assoc($result)){
+                $id_os = $row["id"];
+                $telefone = $row["cliente"];
+                $placa = $row["veiculo"];
+                $id_servico = $row["servico"];
+                $data = $row["data"];
+                echo $telefone;
             
-            /* buscando o nome do cliente*/
-            $nome = consultaNome($telefone, $mysqli);
-            
-            /* buscando os dados do veiculo*/
-            $auxiliar = consultaVeiculo($placa, $mysqli);
-            $veiculo = $auxiliar['veiculo'];
-            $ano = $auxiliar['ano'];
-            $cor = $auxiliar['cor'];
-            
-            if($contador == 0){
-                $array_final = [$id_os, $telefone, $placa, $data, $nome, $veiculo, $ano, $cor];
-            }else{
+                /* buscando o nome do cliente*/
+                $nome = consultaNome($telefone, $mysqli);
                 
+                /* buscando os dados do veiculo*/
+                $auxiliar = consultaVeiculo($placa, $mysqli);
+                $veiculo = $auxiliar['veiculo'];
+                $ano = $auxiliar['ano'];
+                $cor = $auxiliar['cor'];
+                
+                $array_final = [
+                    'resultado' => [
+                        [
+                            'id' => $id_os, 
+                            'telefone' => $telefone, 
+                            'placa' => $placa, 
+                            'data' => $data, 
+                            'nome' => $nome, 
+                            'veiculo' => $veiculo, 
+                            'ano' => $ano, 
+                            'cor' => $cor
+                        ]
+                    ]
+                ];
+                print_r($array_final);
             }
-            
+            echo "<br>";
             print_r($array_final);
-            
         }
-
     }
+    
     if($modo == "veiculo"){
         /* Buscando dados do veículo */
         $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE veiculo = '$busca' ";
