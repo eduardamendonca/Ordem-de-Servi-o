@@ -74,6 +74,7 @@ if($modo !== "none"){
                 $ano = $auxiliar['ano'];
                 $cor = $auxiliar['cor'];
                 
+                /* adicionando os dados na array*/
                 $array_final = [
                     'resultado' => [
                         [
@@ -311,7 +312,7 @@ if($modo !== "none"){
     </div>
 </body>   
     <section class="btn">
-        <a href="index.html" target="_self">
+        <a href="/automecanicapj/Ordem-de-Servico/" target="_self">
             <button class="advance-btn">
                 <img src="/automecanicapj/Ordem-de-Servico/img/left.svg" class="img-btn">
             </button> 

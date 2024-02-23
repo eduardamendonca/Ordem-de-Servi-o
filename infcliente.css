@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
+
 body{
     background-color: #00255C; 
     position: relative;
@@ -30,6 +31,13 @@ body{
     border-radius: 20px;
     width: 80%;
     font-family: 'Karma', serif;
+}
+/* Botão de pesquisar*/
+#btnbusca,
+.search{
+    border-bottom-style: none;
+    background-color: #ffffff;
+    border: none;
 }
 /*-----formulário------*/
 .imputUser{
@@ -89,6 +97,7 @@ body{
 .inputUser[name=num]{
     margin-right: 0rem;
 }
+
 /*-----check-----*/
 .check{
     display: flex;
