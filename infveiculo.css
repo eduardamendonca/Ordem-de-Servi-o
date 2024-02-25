@@ -59,6 +59,12 @@ body{
 .inputUser{
     font-size: 1.5rem;
 }
+.search{
+    border-bottom-style: none;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
 .choiceUser{
     margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;

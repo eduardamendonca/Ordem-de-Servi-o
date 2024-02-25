@@ -54,16 +54,17 @@ if($modo !== "none"){
         $result = $mysqli->query($query_ordem_servico); 
 
         $contador = $result->num_rows;
-        echo "CONTADOR: ".$contador."<br>";
+        //*echo "CONTADOR: ".$contador."<br>";
 
         if($result->num_rows > 0){
+            $id = 0;
             while($row = mysqli_fetch_assoc($result)){
                 $id_os = $row["id"];
                 $telefone = $row["cliente"];
                 $placa = $row["veiculo"];
                 $id_servico = $row["servico"];
                 $data = $row["data"];
-                echo $telefone;
+                
             
                 /* buscando o nome do cliente*/
                 $nome = consultaNome($telefone, $mysqli);
@@ -75,8 +76,9 @@ if($modo !== "none"){
                 $cor = $auxiliar['cor'];
                 
                 /* adicionando os dados na array*/
-                $array_final = [
-                    'resultado' => [
+                if ($id == 0){
+                    $array_final = [
+                        $id =>
                         [
                             'id' => $id_os, 
                             'telefone' => $telefone, 
@@ -87,11 +89,27 @@ if($modo !== "none"){
                             'ano' => $ano, 
                             'cor' => $cor
                         ]
-                    ]
-                ];
+                    
+                    ];
+
+                }else{
+                    $array_final [$id] =
+                        [
+                            'id' => $id_os, 
+                            'telefone' => $telefone, 
+                            'placa' => $placa, 
+                            'data' => $data, 
+                            'nome' => $nome, 
+                            'veiculo' => $veiculo, 
+                            'ano' => $ano, 
+                            'cor' => $cor
+                        ];
+                }
+
+                $id += 1;
                 print_r($array_final);
+                echo "<br>";
             }
-            echo "<br>";
             print_r($array_final);
         }
     }
@@ -111,6 +129,7 @@ if($modo !== "none"){
         
         $result = $mysqli->query($query_ordem_servico); 
         $contador = 0;
+
         if($result->num_rows > 0){
             $row = $result->fetch_assoc(); 
             $id_os = $row["id"];
@@ -125,6 +144,7 @@ if($modo !== "none"){
             echo $nome; 
             }
             print_r($result_inf_veiculo);
+            echo"<br>";
     }
     if($modo == "codigo"){
         /*buscando dados da os  */
@@ -294,18 +314,19 @@ if($modo !== "none"){
                 </div>
             </form>
             <?php
-                while($busca_data = mysqli_fetch_assoc($result))
+                $i = 0;
+                $busca_data = count($array_final)-1;
+
+                while($i <= $busca_data )
                 {
                     echo "<div>";
-                    echo "Data: ".$busca_data['data'];   
+                    echo "Data: ".$array_final[$i]['data'];   
                     echo "<br>";
-                    echo "Código da OS: ".$busca_data['id'];
+                    echo "Código da OS: ".$array_final[$i]['id'];
                     echo "<br>";
-                    echo "Placa: ".$busca_data['veiculo'];
+                    echo "Placa: ".$array_final[$i]['placa'];
                     echo "</div";
-                    $telefone = $busca_data['cliente'];
-                    $nome = consultaNome($telefone, $mysqli);
-                    
+                    $i++;
                 }
             ?>
         </div>    

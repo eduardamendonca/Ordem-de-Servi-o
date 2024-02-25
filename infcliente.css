@@ -38,6 +38,7 @@ body{
     border-bottom-style: none;
     background-color: #ffffff;
     border: none;
+    cursor: pointer;
 }
 /*-----formulário------*/
 .imputUser{

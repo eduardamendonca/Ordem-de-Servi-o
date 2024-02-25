@@ -1,4 +1,6 @@
 01 - Na consulta no modo data aparecer o calendário
 02 - No modo data aprecer o modo de consultar por um determinado período
 03 - atualizar o código em funções
+04 - busca das informações
+
  
