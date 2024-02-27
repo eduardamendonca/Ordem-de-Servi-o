@@ -36,14 +36,6 @@ function consultaVeiculo($placa, $mysqli){
     ];
 }
 
-//*id
-//*telefone
-//*placa 
-//*data 
-//*nome 
-//*veiculo 
-//*ano 
-//*cor 
 
 if($modo !== "none"){
     if($modo == "placa"){
@@ -314,18 +306,32 @@ if($modo !== "none"){
                 </div>
             </form>
             <?php
+               
                 $i = 0;
                 $busca_data = count($array_final)-1;
 
                 while($i <= $busca_data )
                 {
-                    echo "<div>";
-                    echo "Data: ".$array_final[$i]['data'];   
-                    echo "<br>";
-                    echo "Código da OS: ".$array_final[$i]['id'];
-                    echo "<br>";
-                    echo "Placa: ".$array_final[$i]['placa'];
-                    echo "</div";
+                    echo "<div class=\"result\">";
+                        echo "<div class=\"result-row\">";
+                            echo "<div> Código da OS: ".$array_final[$i]['id']."</div>";
+                            echo "<div> Data: ".$array_final[$i]['data']."</div>";   
+                        echo "</div>";
+                        echo "<div class=\"result-row\">";
+                            echo "<div> Placa: ".$array_final[$i]['placa']."</div>";
+                            echo "<div> Veículo: ".$array_final[$i]['veiculo']."</div>";
+                            echo "<div> Ano: ".$array_final[$i]['ano']."</div>";
+                            echo "<div> Cor: ".$array_final[$i]['cor']."</div>";
+                        echo "</div>";
+                        echo "<div class=\"result-row\">";
+                            echo "<div> Telefone: ".$array_final[$i]['telefone']."</div>";
+                            echo "<div> Nome: ".$array_final[$i]['nome']."</div>";
+                            echo "<br><br>";
+                        echo "</div>";
+                        echo "<div>";
+                            echo "<button >Vizualizar</button>";
+                        echo "</div>";
+                    echo "</div>";
                     $i++;
                 }
             ?>
