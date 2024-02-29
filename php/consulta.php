@@ -4,37 +4,62 @@ include("conection.php");
 $modo = isset ($_POST['modo'])?$_POST['modo']:null;
 $busca = isset ($_POST['busca'])?$_POST['busca']:null;
 
-function consultaNome($telefone, $mysqli){
-    $query_nome = "SELECT nome FROM inf_clientes WHERE telefone1 = '$telefone' ";
+/* função que retorna dados do cliente */
+function consultaCliente($modo, $telefone, $mysqli){
+    if($modo == "placa"){
+        $query_nome = "SELECT nome FROM inf_clientes WHERE telefone1 = '$telefone' ";
+            
+        $result_nome = $mysqli->query($query_nome);
         
-    $result_nome = $mysqli->query($query_nome);
+        if($result_nome->num_rows > 0){
+            $row = $result_nome->fetch_assoc(); 
+            $nome = $row["nome"];
+        }
     
-    if($result_nome->num_rows > 0){
-        $row = $result_nome->fetch_assoc(); 
-        $nome = $row["nome"];
-    }
+        return $nome;
 
-    return $nome;
+    }
 }
 
-function consultaVeiculo($placa, $mysqli){
-    $query_veiculo = "SELECT * FROM inf_veiculo WHERE placa = '$placa'";
-
-    $result_veiculo = $mysqli->query($query_veiculo);
-
-    if($result_veiculo->num_rows > 0){
-        $row = $result_veiculo->fetch_assoc();
-        $veiculo = $row["veiculo"] ;
-        $cor = $row["cor"] ;
-        $ano = $row["ano"] ;
-    }
+/* função que retorna dados do veículo */
+function consultaVeiculo($modo, $dado, $mysqli){
+    if($modo == "placa"){
+        $query_veiculo = "SELECT * FROM inf_veiculo WHERE placa = '$dado'";
     
-    return $array=[
-        'veiculo' => $veiculo, 
-        'cor' => $cor, 
-        'ano' => $ano
-    ];
+        $result_veiculo = $mysqli->query($query_veiculo);
+    
+        if($result_veiculo->num_rows > 0){
+            $row = $result_veiculo->fetch_assoc();
+            $veiculo = $row["veiculo"] ;
+            $cor = $row["cor"] ;
+            $ano = $row["ano"] ;
+        }
+        
+        return $array=[
+            'veiculo' => $veiculo, 
+            'cor' => $cor, 
+            'ano' => $ano
+        ];
+    }
+    if($modo == "veiculo"){
+        $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE veiculo = '$busca' ";
+
+        $result_inf_veiculo = $mysqli->query($query_inf_veiculo); 
+
+        if($result_inf_veiculo->num_rows > 0){
+            $row = $result_inf_veiculo->fetch_assoc(); 
+            $placa = $row["placa"];
+            $cor = $row["cor"];
+            $ano = $row["ano"];
+        }
+        return $array=[
+            'placa' => $placa, 
+            'cor' => $cor, 
+            'ano' => $ano
+        ];
+    }
 }
+
 
 
 if($modo !== "none"){
@@ -59,10 +84,10 @@ if($modo !== "none"){
                 
             
                 /* buscando o nome do cliente*/
-                $nome = consultaNome($telefone, $mysqli);
+                $nome = consultaCliente($modo, $telefone, $mysqli);
                 
                 /* buscando os dados do veiculo*/
-                $auxiliar = consultaVeiculo($placa, $mysqli);
+                $auxiliar = consultaVeiculo($modo, $placa, $mysqli);
                 $veiculo = $auxiliar['veiculo'];
                 $ano = $auxiliar['ano'];
                 $cor = $auxiliar['cor'];
@@ -108,14 +133,11 @@ if($modo !== "none"){
     
     if($modo == "veiculo"){
         /* Buscando dados do veículo */
-        $query_inf_veiculo = "SELECT * FROM inf_veiculo WHERE veiculo = '$busca' ";
-        $result_inf_veiculo = $mysqli->query($query_inf_veiculo); 
-        if($result_inf_veiculo->num_rows > 0){
-            $row = $result_inf_veiculo->fetch_assoc(); 
-            $placa = $row["placa"];
-            $cor = $row["cor"];
-            $ano = $row["ano"];
-        }
+        $auxiliar = consultaVeiculo($modo, $placa, $mysqli);
+        $placa = $auxiliar['placa'];
+        $ano = $auxiliar['ano'];
+        $cor = $auxiliar['cor'];
+
         /* Buscando dados da OS */
         $query_ordem_servico = "SELECT * FROM ordem_servico WHERE veiculo = '$placa' ORDER BY id DESC";
         
